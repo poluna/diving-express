@@ -1,0 +1,53 @@
+html
+    head
+        link(rel="stylesheet" href="/css/main.css")
+    body
+        .diving-app
+            header
+                .logo
+                    img(src="/img/home.png")
+                    span HOMEPAGE
+                nav
+                    ul.list
+                        li.item
+                            a.home(href="#") home
+                        li.item
+                            a(href="#") dive into
+                        li.item
+                            a(href="#")  contact
+            .container
+                section.slogan
+                    h1
+                        | Lorem ipsum. Dolor sit amet.
+                    p
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Augue mauris augue neque gravida in fermentum. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor. 
+                    .actions
+                        button.btn.btn-primary Form
+                        button.btn.btn-shadow XXX
+                footer.app-footer
+                    || Created with 💙 by Pola
+            .box
+                .box-content
+                    h2 Dive into adventure
+                    form(action="/applications" method="POST")
+                        .form-item
+                            label What's your name?
+                            input(placeholder="John Doe" type="text" name="name")
+                        .form-item
+                            label What's your phone number?
+                            input(placeholder="+ 48 000 000 000" type="text" name="phone")
+                        .form-item
+                            label Leave a message
+                            textarea(placeholder="Please feel free to ask us anything" rows="3" name="message")
+                        .form-item
+                            button.btn.btn-primary Dive into adventure
+            if (formMessage.length)
+                .box
+                    .box-content
+                        h2 #{ formMessage }
+                        .box
+                            button.btn.btn-primary Close
+
+        script(src="/js/app.js")
+
+        //- style="display: none;"
