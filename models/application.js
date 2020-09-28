@@ -7,7 +7,7 @@ const Application = bookshelf.Model.extend({
 module.exports.create = (application) => {
   return new Application({
     name: application.name,
-    phone: application.phone,
+    email: application.email,
     message: application.message,
   }).save();
 };

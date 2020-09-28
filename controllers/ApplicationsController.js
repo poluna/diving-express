@@ -1,4 +1,5 @@
 const Application = require("../models/application");
+const { check, validationResult } = require("express-validator/check");
 
 /*
 exports.store = (req, res, next) => {
@@ -31,7 +32,7 @@ exports.store = async (req, res, next) => {
   try {
     await Application.create({
       name: req.body.name,
-      phone: req.body.phone,
+      email: req.body.email,
       message: req.body.message,
     });
     req.flash("form", req.body.first_name + ", you are a true hero!");
@@ -39,6 +40,25 @@ exports.store = async (req, res, next) => {
   } catch (err) {
     return next(err);
   }
+};
+
+exports.validate = [
+  check("name").trim().isLength({ min: 1 }).withMessage("Name is required."),
+  check("email").isLength({ min: 1 }).withMessage("Email is required."),
+  check("message").isLength({ min: 1 }).withMessage("Message is required."),
+];
+
+exports.checkValidation = (req, res, next) => {
+  const errors = validationResult(req);
+  console.log(req.body.message);
+  if (!errors.isEmpty()) {
+    return res.render("home", {
+      validated: req.body,
+      errors: errors.mapped(),
+      showBox: "true", //
+    });
+  }
+  next();
 };
 
 // Middleware
