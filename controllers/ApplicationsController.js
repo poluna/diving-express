@@ -35,7 +35,7 @@ exports.store = async (req, res, next) => {
       email: req.body.email,
       message: req.body.message,
     });
-    req.flash("form", req.body.first_name + ", you are a true hero!");
+    req.flash("form", req.body.first_name + ", we will contact you soon!");
     res.redirect("/");
   } catch (err) {
     return next(err);

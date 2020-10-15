@@ -42,7 +42,7 @@ html
                                 p.error #{ errors.email.msg }
                         .form-item
                             label Leave a message
-                            textarea(placeholder="Please feel free to ask us anything" rows="3" name="message") #{ validated ? validated.message : '' }
+                            textarea(placeholder="Please feel free to ask us anything" rows="5" name="message") #{ validated ? validated.message : '' }
                             if (errors && errors.message)
                                 p.error #{ errors.message.msg }
                         .form-item
@@ -50,7 +50,6 @@ html
             .box.box-message(style=(formMessage && formMessage.length) ? "display: block" : "display: none")
                 .box-content
                     h2 #{ formMessage }
-                    .box
-                        button.btn.btn-primary.btn-close Close 
+                    button.btn.btn-primary.btn-close Close 
 
     script(src="/js/script.js")
