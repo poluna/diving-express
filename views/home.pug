@@ -2,7 +2,7 @@ html
     head
         link(rel="stylesheet" href="/css/main.css")
     body
-        .diving-app(data-box=showBox)
+        .diving-app
             header
                 .logo
                     img(src="/img/home.png")
@@ -22,11 +22,11 @@ html
                     p
                         | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Augue mauris augue neque gravida in fermentum. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor. 
                     .actions
-                        button.btn.btn-primary Form
+                        button.btn.btn-primary.btn-form Form
                         button.btn.btn-shadow XXX
                 footer.app-footer
                     || Created with 💙 by Pola
-            .box
+            .box.box-form(style=validated ? "display: block" : "display: none")
                 .box-content
                     h2 Dive into adventure
                     form(action="/applications" method="POST")
@@ -47,13 +47,10 @@ html
                                 p.error #{ errors.message.msg }
                         .form-item
                             button.btn.btn-primary Dive into adventure
-            if (formMessage)
-                .box
-                    .box-content
-                        h2 #{ formMessage }
-                        .box
-                            button.btn.btn-primary Close
+            .box.box-message(style=(formMessage && formMessage.length) ? "display: block" : "display: none")
+                .box-content
+                    h2 #{ formMessage }
+                    .box
+                        button.btn.btn-primary.btn-close Close 
 
-        script(src="/js/app.js")
-
-        //- style="display: none;"
+    script(src="/js/script.js")

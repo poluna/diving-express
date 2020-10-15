@@ -1,5 +1,5 @@
 const Application = require("../models/application");
-const { check, validationResult } = require("express-validator/check");
+const { check, validationResult } = require("express-validator");
 
 /*
 exports.store = (req, res, next) => {
@@ -50,12 +50,11 @@ exports.validate = [
 
 exports.checkValidation = (req, res, next) => {
   const errors = validationResult(req);
-  console.log(req.body.message);
+  // console.log(req.body.message);
   if (!errors.isEmpty()) {
     return res.render("home", {
       validated: req.body,
       errors: errors.mapped(),
-      showBox: "true", //
     });
   }
   next();
